@@ -9,11 +9,11 @@ Feature: Upload SBOM
        And Upload button is present
        And Accepted file types are described
 
-#   Scenario Outline: Upload single SBOM
-#       Given User visits Upload page
-#       When User uploads single SBOM file
-#       Then Summary of total uploaded files is updated
-#       And Results of uploading single file is visible
+    Scenario Outline: Upload single SBOM
+        Given User visits Upload page
+        When User uploads single SBOM file
+        Then Summary of uploaded files shows single file was uploaded
+        And Results of uploading single file is visible
 #
 #   Scenario Outline: Upload multiple SBOMs
 #       Given User visits Upload page
