@@ -14,16 +14,10 @@ Feature: Upload SBOM
         When User uploads single SBOM file
         Then Summary of uploaded files shows single file was uploaded
         And Results of uploading single file is visible
-#
-#   Scenario Outline: Upload multiple SBOMs
-#       Given User visits Upload page
-#       When User uploads multiple SBOM files
-#       Then Summary of total uploaded files is updated
-#       And Results of all uploaded files are visible
-#
-#   Scenario Outline: Upload multiple SBOMs (some bz2 compressed)
-#       Given User visits Upload page
-#       When User uploads multiple SBOM files with mixed compression
-#       Then Summary of total uploaded files is updated
-#       And Results of all uploaded files are visible
 
+    Scenario Outline: Upload multiple SBOMs
+        Given Multiple SBOM files are prepared for upload
+        Given User visits Upload page
+        When User uploads multiple SBOM files
+        Then Summary of total uploaded files shows count for multiple files
+        And Results of multiple uploaded files are visible
