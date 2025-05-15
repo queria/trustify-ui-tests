@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 // FIXME: unused
 // import { bzip2 } from "../../../common/compression"
-import { expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { createBdd } from "playwright-bdd";
 
 export const { Given, When, Then, Step } = createBdd();
@@ -50,6 +50,7 @@ const uploadFiles = async (page: Page, files: string[]) => {
 };
 
 const verifyUploadStatusCount = async (page: Page, count: number) => {
+  test.setTimeout(TIMEOUT_UPLOAD_DONE);
   await expect(
     page.locator(
       "#upload-sbom-tab-content .pf-v5-c-expandable-section__toggle-text"
@@ -113,6 +114,7 @@ Then(
 );
 
 Then("Results of uploading single file is visible", async ({ page }) => {
+  test.setTimeout(TIMEOUT_UPLOAD_DONE);
   const individual_results = page.locator(
     ".pf-v5-c-expandable-section__content .pf-v5-c-multiple-file-upload__status-item"
   );
@@ -148,6 +150,7 @@ Then(
 );
 
 Then("Results of multiple uploaded files are visible", async ({ page }) => {
+  test.setTimeout(TIMEOUT_UPLOAD_DONE);
     // TODO: unify and reuse with code for single file (can pass whole DATA_SBOM_ array)
     // TODO: likely this can be actually parameter from .feature file
     //       - structure as DATA_SBOM["single"] and DATA_SBOM["multiple"]

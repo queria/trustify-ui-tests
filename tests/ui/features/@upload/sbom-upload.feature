@@ -1,5 +1,6 @@
 Feature: Upload SBOM
-    Background: Authentication
+
+    Background:
         Given User is authenticated
 
     Scenario Outline: Verify Upload SBOM page content
